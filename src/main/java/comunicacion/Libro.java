@@ -51,10 +51,16 @@ public class Libro extends Escrito{
     }
     @Override
     int palabrasTotales(int palabrasPagina){
-        return palabrasPagina * this.getPaginas();
+        return palabrasPagina * this.getPaginas()*2;
     }
 
     public String toString(){
-        return "";
+        return String.format(this.getOrigen()+"\n"+
+                                this.getTitulo()+"\n"+
+                                this.getAutor()+"\n"+
+                                "%d"+"\n"+
+                                this.co_autor+"\n"+
+                                this.editorial+"\n"+
+                                this.edicion+"\n", this.getPaginas());
     }
 }

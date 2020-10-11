@@ -4,21 +4,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Alfabeto extends Pictograma{
-    private List<String> letras = new ArrayList<String>();
+    private static List<String> letras = new ArrayList<String>();
     private String interpretacion = "";
 
-    public Alfabeto(String origen, String interpretacion, List<String> letras){
+    public Alfabeto(String origen, String interpretacion){
         super(origen);
         this.interpretacion = interpretacion;
-        this.letras = letras;
     }
+   
     public int cantidadLetras(){
-        return this.letras.size();
+        return letras.size();
     }
-    public String interpretacion(){
+
+    @Override
+    String interpretacion(){
         return this.interpretacion;
     }
+
+    @Override
     public String toString(){
-        return "";
+        return letras.toString().replace("[", "").replace("]", "");
+    }
+
+    public static List<String> getLetras() {
+        return letras;
+    }
+
+    public static void setLetras(List<String> letras) {
+        Alfabeto.letras = letras;
+    }
+
+    public String getInterpretacion() {
+        return interpretacion;
+    }
+
+    public void setInterpretacion(String interpretacion) {
+        this.interpretacion = interpretacion;
     }
 }

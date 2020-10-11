@@ -5,16 +5,15 @@ import java.util.List;
 
 public class Tesis extends Escrito {
     private String idea = "";
-    private List<String> argumentos = new ArrayList<String>();
+    private static List<String> argumentos = new ArrayList<String>();
     private String conclucion = "";
     private String referencias = "";
     private String interpretacion = "";
 
-    public Tesis(String origen, String titulo, String autor, int paginas, String idea, List<String> argumentos,
+    public Tesis(String origen, String titulo, String autor, int paginas, String idea,
             String conclucion, String referencias, String interpretacion) {
         super(origen, titulo, autor, paginas);
         this.idea = idea;
-        this.argumentos = argumentos;
         this.conclucion = conclucion;
         this.referencias = referencias;
         this.interpretacion = interpretacion;
@@ -30,10 +29,6 @@ public class Tesis extends Escrito {
 
     public List<String> getArgumentos() {
         return argumentos;
-    }
-
-    public void setArgumentos(List<String> argumentos) {
-        this.argumentos = argumentos;
     }
 
     public String getConclucion() {
@@ -62,7 +57,7 @@ public class Tesis extends Escrito {
 
     @Override
     int palabrasTotales(int palabrasPagina) {
-        return palabrasPagina * this.getPaginas();
+        return palabrasPagina * this.getPaginas()*5;
     }
 
     @Override
@@ -72,7 +67,14 @@ public class Tesis extends Escrito {
 
     @Override
     public String toString() {
-        return "";
+        return String.format(this.getOrigen()+"\n"+
+                            this.getTitulo()+"\n"+
+                            this.getAutor()+"\n"+
+                            "%d"+"\n"+
+                            "%d"+"\n"+
+                            this.idea+"\n"+
+                            this.conclucion+"\n"+
+                            this.referencias+"\n", this.getPaginas(),argumentos.size());
     }
 
     

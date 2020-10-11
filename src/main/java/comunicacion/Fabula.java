@@ -38,7 +38,12 @@ public class Fabula extends Escrito {
 
     @Override
     public String toString() {
-        return "";
+        return String.format(this.getOrigen()+"\n"+
+                                this.getTitulo()+"\n"+
+                                this.getAutor()+"\n"+
+                                "%d"+"\n"+
+                                this.ensenanza+"\n"+
+                                this.interpretacion+"\n", this.getPaginas());
     }
     
 }
