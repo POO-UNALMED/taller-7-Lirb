@@ -38,15 +38,19 @@ public class Libro extends Escrito{
         this.edicion = edicion;
     }
 
-    public String interpretacion() {
+    public String getInterpretacion() {
         return interpretacion;
     }
 
     public void setInterpretacion(String interpretacion) {
         this.interpretacion = interpretacion;
     }
-
-    public int palabrasTotales(int palabrasPagina){
+    @Override
+    String interpretacion(){
+        return this.interpretacion;
+    }
+    @Override
+    int palabrasTotales(int palabrasPagina){
         return palabrasPagina * this.getPaginas();
     }
 
