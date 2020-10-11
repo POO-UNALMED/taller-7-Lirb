@@ -27,23 +27,23 @@ public class Fabula extends Escrito {
     }
 
     @Override
-    int palabrasTotales(int palabrasPagina) {
+    public int palabrasTotales(int palabrasPagina) {
         return palabrasPagina*this.getPaginas();
     }
 
     @Override
-    String interpretacion() {
+    public String interpretacion() {
         return this.interpretacion;
     }
 
     @Override
     public String toString() {
-        return String.format(this.getOrigen()+"\n"+
-                                this.getTitulo()+"\n"+
-                                this.getAutor()+"\n"+
-                                "%d"+"\n"+
-                                this.ensenanza+"\n"+
-                                this.interpretacion+"\n", this.getPaginas());
+        String toString = String.format(this.getOrigen()+"\n"+
+                                        this.getTitulo()+"\n"+
+                                        this.getAutor()+"\n"+
+                                        "%d"+"\n"+
+                                        this.ensenanza, this.getPaginas());
+        return toString;
     }
     
 }

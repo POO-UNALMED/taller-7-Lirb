@@ -46,11 +46,11 @@ public class Libro extends Escrito{
         this.interpretacion = interpretacion;
     }
     @Override
-    String interpretacion(){
+    public String interpretacion(){
         return this.interpretacion;
     }
     @Override
-    int palabrasTotales(int palabrasPagina){
+    public int palabrasTotales(int palabrasPagina){
         return palabrasPagina * this.getPaginas()*2;
     }
 
@@ -61,6 +61,6 @@ public class Libro extends Escrito{
                                 "%d"+"\n"+
                                 this.co_autor+"\n"+
                                 this.editorial+"\n"+
-                                this.edicion+"\n", this.getPaginas());
+                                this.edicion, this.getPaginas());
     }
 }

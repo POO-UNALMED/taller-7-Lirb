@@ -1,22 +1,21 @@
 package comunicacion;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Tesis extends Escrito {
     private String idea = "";
-    private static List<String> argumentos = new ArrayList<String>();
-    private String conclucion = "";
+    private static String [] argumentos = null;
+    private String conclusion = "";
     private String referencias = "";
     private String interpretacion = "";
 
-    public Tesis(String origen, String titulo, String autor, int paginas, String idea,
+    public Tesis(String origen, String titulo, String autor, int paginas, String idea, String [] argumentos1,
             String conclucion, String referencias, String interpretacion) {
         super(origen, titulo, autor, paginas);
         this.idea = idea;
-        this.conclucion = conclucion;
+        this.conclusion = conclucion;
         this.referencias = referencias;
         this.interpretacion = interpretacion;
+        argumentos = argumentos1;
     }
 
     public String getIdea() {
@@ -27,16 +26,16 @@ public class Tesis extends Escrito {
         this.idea = idea;
     }
 
-    public List<String> getArgumentos() {
+    public String[] getArgumentos() {
         return argumentos;
     }
 
-    public String getConclucion() {
-        return conclucion;
+    public String getConclusion() {
+        return conclusion;
     }
 
-    public void setConclucion(String conclucion) {
-        this.conclucion = conclucion;
+    public void setConclusion(String conclucion) {
+        this.conclusion = conclucion;
     }
 
     public String getReferencias() {
@@ -56,25 +55,26 @@ public class Tesis extends Escrito {
     }
 
     @Override
-    int palabrasTotales(int palabrasPagina) {
+    public int palabrasTotales(int palabrasPagina) {
         return palabrasPagina * this.getPaginas()*5;
     }
 
     @Override
-    String interpretacion() {
+    public String interpretacion() {
         return this.interpretacion;
     }
 
     @Override
     public String toString() {
-        return String.format(this.getOrigen()+"\n"+
-                            this.getTitulo()+"\n"+
-                            this.getAutor()+"\n"+
-                            "%d"+"\n"+
-                            "%d"+"\n"+
-                            this.idea+"\n"+
-                            this.conclucion+"\n"+
-                            this.referencias+"\n", this.getPaginas(),argumentos.size());
+        String toString = String.format(this.getOrigen()+"\n"+
+                                        this.getTitulo()+"\n"+
+                                        this.getAutor()+"\n"+
+                                        "%d"+"\n"+
+                                        this.idea+"\n"+
+                                        "%d"+"\n"+
+                                        this.conclusion+"\n"+
+                                        this.referencias, this.getPaginas(), argumentos.length);
+        return toString;
     }
 
     
